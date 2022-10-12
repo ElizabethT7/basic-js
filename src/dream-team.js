@@ -14,79 +14,24 @@ const { NotImplementedError } = require('../extensions/index.js');
  *
  */
 function createDreamTeam(members) {
-  //throw new NotImplementedError('Not implemented');
-  // remove line with error and write your code here
-  console.log(members)
-  console.log(members.length)
   let result = '';
-  if (members === null || members === undefined || members.length === 0) { return false;}
-  for (let i = 0; i < members.length; i++) {
-    console.log(typeof members[i]);
-    if (typeof (members[i]) == "string" || members[i] instanceof String) {
-      let name = members[i].trim().toUpperCase();
-      console.log(name);
-      //for (let j = 0; j< members[i].length; j++ ){
-      result = result + name[0];
-      console.log(name[0]);
-      console.log(result)
-    //}
-    } else { 
-      result = result;
-      i++;
-    } //return result; 
-    console.log(result)
-  }
-  
-  let dreamTeamName = result.split('').sort().join('');
-  console.log(dreamTeamName);
-  return dreamTeamName;
-
+  if (members == null || members === undefined || members.length === 0 || members === false)  {
+    return false;
+    } else {
+      if (Array.isArray(members)) {
+        for (let i = 0; i < members.length; i++) {
+          if (typeof (members[i]) == "string" || members[i] instanceof String) {
+          let name = members[i].trim().toUpperCase();
+          result = result + name[0];
+            } else { 
+              result = result;
+            } 
+          }
+        let dreamTeamName = result.split('').sort().join('');
+        return dreamTeamName;
+      } else return false;
+    }
 }
-
-
-//createDreamTeam(['Dylan', 'Keith', 'Madison', 'Ralph', 'Olivia', 'Raymond', 'Megan', 'Frank', 'Daniel', 'Carol'])
-/*createDreamTeam([
-  '   William Alston ',
-  ' Paul Benacerraf',
-  '  Ross Cameron',
-  '       Gilles Deleuze',
-  '  Arda Denkel ',
-  '  Michael Devitt',
-  '  Kit Fine',
-  ' Nelson Goodman',
-  'David Kolb',
-  '   Saul Kripke',
-  '  Trenton Merricks',
-  '  Jay Rosenberg',
-])*/
-
-/*createDreamTeam([
-  'amelia',
-  'ruby',
-  'lily',
-  'grace',
-  'millie',
-  'daisy',
-  'freya',
-  'erin',
-  'megan',
-  'jasmine',
-  'brooke',
-])*/
-
-createDreamTeam([
-  ['David Abram'],
-  ['Robin Attfield'],
-  'Thomas Berry',
-  ['Paul R.Ehrlich'],
-  'donna Haraway',
-  ' BrIaN_gOodWiN  ',
-  {
-    0: 'Serenella Iovino'
-  },
-  'Erazim Kohak',
-  '  val_plumwood',
-])
 
 module.exports = {
   createDreamTeam
