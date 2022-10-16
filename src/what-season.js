@@ -17,7 +17,7 @@ function getSeason(date) {
     let month = date.getMonth();
     if (Date.prototype.toString.call(new Date()) instanceof Date) {throw new Error('Invalid date!');}
     if (!(date instanceof Date) || Object.getOwnPropertyNames(date).length) {throw new Error('Invalid date!');}
-      if (month > 12 || month < 0) {throw new Error('Invalid date!');}
+      if (month > 11 || month < 0) {throw new Error('Invalid date!');}
       if ((month >= 0 && month < 2) || month === 11) return 'winter';
       if ((month >= 2 && month < 5)) return 'spring';
       if ((month >= 5 && month < 8)) return 'summer';
