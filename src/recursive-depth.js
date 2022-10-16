@@ -24,7 +24,7 @@ class DepthCalculator {
         //console.log(depth)
         level = 1;
         level = level + this.calculateDepth(arr[i]);
-        if (level < depth) {
+        if (depth > level) {
           level = depth;
         }  
       }
